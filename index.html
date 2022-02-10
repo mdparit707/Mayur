@@ -1,0 +1,172 @@
+<!doctype html>
+	<html>
+	<head>
+		<style>
+			ul{
+				list-style-type: none;
+			}
+			a:hover{
+				color: red;
+			}
+			a{
+				color: blue;
+			}
+			}
+		</style>
+		<title> AND GATE CMOS </title>
+	</head>
+	<body>
+		<h2>Design and implementation of AND GATE CMOS</h2>
+		<br>
+		<p> The purpose of this project is to create a circuit for AND gate and observe the simulation for the circuit for better understanding and to get brief knowledge about it </p>
+
+		<h3> CONTENT </h3>
+		<ul>
+			<li> <a href="#Introduction">Introduction</a></li>
+			<li><a href="#Pin configuration">Pin configuration</a></li>
+			<li><a href="#Functional diagram ">Functional diagram and description</a>
+		<li><a href="#Pre layout">Pre layout</a></li>
+		</li><a href="#Open lane">Open lane</a></li>
+		<li><a href="#Floor-planning">Floor-planning</a></li>
+		<li><a href="#Post-layout">Post-layout</a></li>
+		<li><a href="#Refrences">Refrences</a></li>
+		<li><a href="#Acknowledgement">Acknowledgement</a></li>
+		<li><a href="#Author">Author</a></li>
+	</ul>
+	<div class="md">
+		
+		<section id="Introduction">
+			<h3>INTRODUCTION</h3>
+			<p>This project consist of the CMOS AND gate which is basically the AND gate which having property to allow only the high inputs. For data transmission control in digital electronics which allows or disallows transmission of data through channel AND gate is necessary. As AND gate used for the data transmission purpose thus we are here studying hoe the AND gate CMOS is working in brief for better understanding and get the detailed knowledge about the CMOS technology as well.</p>
+		</section>
+	</div>
+
+	<div class="m">
+		
+		<section id="Pin configuration">
+			<h3>PIN CONFIGURATION</h3>
+		<p>As AND gate having IC no.7804 here is the IC with configuration of it for better understanding of AND gate </p>
+
+		<img src="./img/pin.jpeg"  width=500px height=500px alt="PIN config">
+	</section>
+		
+	</div>
+
+	<div class="n">
+		
+		<section id="Functional diagram">
+			<h3>FUNCTION DIAGRAM </h3>
+		<p>The AND gate is a basic digital logic gate that implements logical conjunction (∧) from mathematical logic – it behaves according to the truth table above.<br>
+An AND gate is a logic gate having two or more inputs and a single output. An AND gate operates on logical multiplication rules. In this gate, if either of the inputs is low (0), then the output is also low. If all of the inputs are high (1), then the output will also be high.
+</p>
+<img src="./img/functional_dig.png" width=500px height="auto" alt="Functional diagram">
+</section>
+
+<div class="o">
+	
+	<section id="Pre layout">
+		<h3>PRE LAYOUT </h3>
+		<p>Below is the layout for the equivalent circuit of CMOS AND gate, which is consist of 6 CMOS In which 
+3 NMOS and 3 PMOS with 2 pulse input,1 voltage as vdd and 4 ground . We can say that an AND gate is a NOT-NOT-AND or NOT-NAND. Then, it is just a NAND gate followed by an inverter.<br>Combinations of n- and p-channel transistors allow the construction of logic building blocks.<br>The inverter, NAND, and NOR logic building blocks are the backbone of most digital logic families.<br>Two primary connections are the two-input NAND gate and the two-input NOR gate.
+A NAND gate places two n-channel transistors in series to ground and two p-channel transistors in parallel connected to +V. Only when both inputs are logic 1, the output goes to logic 0.<br>A NOR gate arranges two n-channel transistors in parallel so that either one can pull the output to ground (logic 0) for a logic 1 (+V) input. It also places two p-channel transistors in series, which must work together to pull the output to logic 1 for logic 0 in both inputs. The output will go to logic 1 only when both A and B are logic 0.
+AND and OR gates are NAND and NOR gates followed by an inverter.</p>
+
+		<img src="./img/prelayout.png" width="700px" height="auto" alt="pre-layout">
+	</section>
+
+	<div class="p">
+		
+		<section id="Open lane">
+			<h3>OPEN LANE </h3>
+			<p>Install eSim version 1.1.2 on Windows OS<br>
+•	For installation  eSim we need internet connection with administrator user<br>
+•	The packages  will be installed along with eSim <br>
+•	Python2.7,PyQt4,Matplotlib,NgSpice,KiCad eSim is free open source software alternative to OrCAD<br>
+•	It can be used for circuit schematic, perform simulation and PCB layout <br>
+•	Download it from <a href="https.eSim.fossee.in">downloads</a><br>
+•	After that eSim 1.1.2 for WOS 07 and latest is also available for latest version<br>
+•	After downloading file extract it at your drive<br>
+•	And setup it on administrator and install it for all library and files by clicking only ok/next.</p>
+
+		</section>
+</div>
+
+<div class="q">
+	
+	<section id="Floor-planning">
+		<h3>FLOOR PLANNING</h3>
+	<p>Floor planning
+In this example we are here going to implement the CMOS AND gate circuit shown the pre layout.<br>
+After the circuit building the circuit we have to annotate the circuit and then create the netlist this will create the Kicad file format
+After creating netlist we have to just convert the file format from it to Kicad to ngspice<br>
+Now Analysis it by applying below value</p>
+	<img src="./img/analysis.png" width="500px" height="500px" alt="Floor-planning">
+	<br><br>
+	<p> Now for source details apply the following value 
+</p>
+<img src="./img/sourcedetailmd.png" width="500px" height="auto" alt="Floor-planning">
+<br><br>
+<p>Now for device modelling the following values and have to add libraries saved at the eSim library file location the click on convert then we get successfully completed window then it converted 
+ </p>
+ <img src="./img/device modulation.png" width="500px" height="auto" alt="Floor-planning">
+ <br><br>
+ <p> After that now do the simulation click on it we get following waveform for the VA ,VB and VOUT </p>
+ <img src="./img/ploting.png"width="500px" height="auto" alt="Floor-planning">
+ <br><br>
+
+ <p>Below is equivalent .CIR and CIR.OUT file and python file
+Cir file shows Netflix file it contains node connections and value of components<br>
+Cir.out file s passed to ngfile to run simulation it contains device subcircuit model for KiCAD to ngspice conversion , it also contains analysis time parameter </p>
+<p>CIR</p>
+<img src="./img/cirfile.png"width="500px" height="auto" alt="Floor-planning"><br><br>
+<p>CIR out</p>
+<img src="./img/ciroutfile.png" width="500px" height="auto" alt="Floor-planning"><br><br>
+<p>Python</p>
+<img src="./img/pythoncode.png" width="500px" height="auto" alt="Floor-planning">
+</section>
+</div>
+
+<div class="r">
+	
+	<section id="Post-layout">
+		<h3>Post-layout</h3>
+		<p> Below is the waveform for the AND gate CMOS circuit VA,VB and VOUT</p>
+		<p>vin[VA]</p>
+		<img src="./img/vain.png"width="500px" height="500px" alt="Post-layout"><br><br>
+		<p>vin[VB]</p>
+		<img src="./img/vbin.png" width="500px" height="auto" alt="Post-layout"><br><br><br>
+		<p>vout</p>
+		<img src="./img/vout.png" width="500px" height="auto" alt="Post-layout">
+
+<div class="s">
+	
+	<section id="Refrences">
+		<h3>REFRENCE</h3>
+		<p>Digital Integrated Circuit by Jan M. Rabaey</p>
+		<ul>
+		<li> <a href="
+For installing eSim https://youtu.be/yhJBw9f3dhI">Refrences_link1 </a></li>
+<li><a href="https://www.allaboutcircuits.com/textbook/digital/chpt-3/cmos-gate-circuitry/">Refrences_link2</a></li>
+<li> <a href="http://www.vlsifacts.com/and-and-or-gate-using-cmos-technology/" >Refrences_links3</a></li>
+	</section>
+</div>
+
+<div class="t">
+	
+	<section id="Acknowledgement">
+		<h3>ACKNOWLEDGEMENT</h3>
+		<p>Kunal Ghosh  Director and co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd. </p>
+	</section>
+</div>
+<div class="u">
+	<h3>AUTHOR</h3>
+	<section id="Author">
+		<h4>Mayur Parit<h4>
+		<p>Shri Guru Gobind Singhji Institute of Engineering and Technology (SGGSIET), Nanded</p>
+		
+	</section>
+	
+</div>
+</body>
+</html>
+ 
